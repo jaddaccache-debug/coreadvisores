@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="We’re building something useful. Join the waitlist to be the first to know when we launch." />
+  <meta name="description" content="Core Advisors — fractional CFO and financial advisory support for founders and leadership teams." />
   <meta name="theme-color" content="#0b1220" />
 
-  <meta property="og:title" content="Launching Soon" />
-  <meta property="og:description" content="Join the waitlist to be notified on launch." />
+  <meta property="og:title" content="Core Advisors — Financial Advisory" />
+  <meta property="og:description" content="Fractional CFO, financial modeling, and strategic advisory for growing businesses." />
   <meta property="og:type" content="website" />
 
-  <title>Launching Soon</title>
+  <title>Core Advisors — Financial Advisory</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,7 +45,9 @@
         linear-gradient(180deg, var(--bg0), var(--bg1));
     }
 
-    a{ color:inherit; }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; text-underline-offset: 3px; }
+
     .wrap{
       min-height:100%;
       display:flex;
@@ -71,10 +73,7 @@
       overflow:hidden;
     }
 
-    .hero{
-      padding: 34px 34px 26px;
-      position:relative;
-    }
+    .hero{ padding: 34px 34px 26px; position:relative; }
 
     .badge{
       display:inline-flex;
@@ -96,7 +95,7 @@
 
     h1{
       margin: 16px 0 10px;
-      font-size: clamp(34px, 3.8vw, 54px);
+      font-size: clamp(32px, 3.8vw, 54px);
       line-height: 1.05;
       letter-spacing: -1.1px;
     }
@@ -105,102 +104,71 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.6;
-      max-width: 60ch;
+      max-width: 62ch;
     }
 
-    .stats{
-      margin-top: 20px;
+    .ctaRow{
+      margin-top: 18px;
       display:flex;
       flex-wrap:wrap;
+      gap: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .btnPrimary{
+      border: 0;
+      color: #07121b;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 14px 30px rgba(56,189,248,.12);
+    }
+    .btn:hover{ text-decoration:none; filter: brightness(1.04); }
+    .btn:active{ transform: translateY(1px); }
+
+    .grid{
+      margin-top: 20px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       padding: 14px;
       border-radius: var(--radius2);
       border: 1px dashed rgba(255,255,255,.12);
       background: rgba(0,0,0,.10);
     }
-    .stat{
-      padding: 10px 12px;
+
+    .card{
+      padding: 12px 12px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
-      min-width: 140px;
-      flex: 1 1 160px;
+      min-width: 0;
     }
-    .stat b{ display:block; font-size: 14px; }
-    .stat span{ color: var(--muted2); font-size: 12px; }
+    .card b{ display:block; font-size: 14px; }
+    .card span{ color: var(--muted2); font-size: 12px; line-height: 1.45; display:block; margin-top: 6px; }
 
-    .cta{
-      padding: 26px 26px 26px;
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
-    }
-    .cta h2{
-      margin:0;
-      font-size: 18px;
-      letter-spacing: -0.2px;
-    }
-    .cta p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    form{
-      margin-top: 8px;
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-    }
-    label{ position:absolute; left:-9999px; }
-
-    input{
-      flex: 1 1 240px;
-      min-width: 220px;
-      padding: 14px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      outline: none;
-    }
-    input::placeholder{ color: rgba(255,255,255,.45); }
-    input:focus{
-      border-color: rgba(56,189,248,.55);
-      box-shadow: 0 0 0 6px rgba(56,189,248,.10);
-    }
-
-    button{
-      padding: 14px 16px;
-      border-radius: 12px;
-      border: 0;
-      cursor:pointer;
-      font-weight: 700;
-      color: #07121b;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 14px 30px rgba(56,189,248,.12);
-      transition: transform .12s ease, filter .12s ease;
-      flex: 0 0 auto;
-    }
-    button:hover{ filter: brightness(1.04); transform: translateY(-1px); }
-    button:active{ transform: translateY(0px); }
-
-    .fine{
-      margin-top: 6px;
+    footer{
+      padding: 14px 18px 0;
+      text-align:center;
+      color: rgba(255,255,255,.45);
       font-size: 12px;
-      color: var(--muted2);
-      line-height: 1.5;
     }
-    .fine a{ text-decoration: underline; text-underline-offset: 3px; }
 
-    .list{
-      padding: 26px;
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
-    }
-    .list h3{ margin:0; font-size:16px; }
+    .aside{ padding: 22px; display:flex; flex-direction:column; gap: 14px; }
+    .aside h2{ margin:0; font-size: 18px; letter-spacing: -0.2px; }
+    .aside p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    .sectionTitle{ margin: 10px 0 0; font-size: 14px; color: rgba(255,255,255,.85); }
+
     .item{
       padding: 14px;
       border-radius: var(--radius2);
@@ -210,32 +178,28 @@
     .item b{ display:block; font-size: 14px; margin-bottom: 6px; }
     .item span{ color: var(--muted); font-size: 13px; line-height: 1.55; }
 
-    footer{
-      padding: 14px 18px 0;
-      text-align:center;
-      color: rgba(255,255,255,.45);
+    .kv{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px;
+      align-items:start;
+    }
+    .k{ color: rgba(255,255,255,.65); font-size: 12px; padding-top: 2px; }
+    .v{ font-size: 13px; color: rgba(255,255,255,.90); word-break: break-word; }
+
+    .note{
+      margin-top:2px;
+      color: rgba(255,255,255,.55);
       font-size: 12px;
+      line-height: 1.5;
     }
 
-    .ok, .err{
-      display:none;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.12);
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .ok{ border-color: rgba(56,189,248,.25); }
-    .err{ border-color: rgba(255,120,120,.25); }
-
-    @media (max-width: 880px){
+    @media (max-width: 980px){
       .shell{ grid-template-columns: 1fr; }
       .hero{ padding: 28px 22px 20px; }
-      .cta, .list{ padding: 22px; }
-    }
-    @media (prefers-reduced-motion: reduce){
-      button{ transition:none; }
+      .aside{ padding: 22px; }
+      .grid{ grid-template-columns: 1fr; }
+      .kv{ grid-template-columns: 90px 1fr; }
     }
   </style>
 </head>
@@ -245,61 +209,74 @@
     <section class="shell">
       <div class="panel">
         <div class="hero">
-          <div class="badge"><span class="dot"></span> Private beta opening soon</div>
-          <h1>We’re building something people will actually use.</h1>
+          <div class="badge"><span class="dot"></span> Fractional CFO & Financial Advisory</div>
+
+          <h1>Financial clarity for founders and leadership teams.</h1>
+
           <p class="sub">
-            A focused product designed to solve one problem well. Join the waitlist and we’ll notify you the moment it launches.
+            Core Advisors provides senior financial leadership on demand—forecasting, budgeting, KPI systems, and decision support to help you scale with control.
           </p>
 
-          <div class="stats" aria-label="Highlights">
-            <div class="stat"><b>Fast launch</b><span>Lean MVP, iterative releases</span></div>
-            <div class="stat"><b>Privacy-first</b><span>No spam. No selling emails</span></div>
-            <div class="stat"><b>Global-ready</b><span>Built for scale & speed</span></div>
+          <div class="ctaRow" aria-label="Primary actions">
+            <a class="btn btnPrimary" href="mailto:wchehaid@gmail.com?subject=Core%20Advisors%20Inquiry">Email</a>
+            <a class="btn" href="tel:+9613999836">Call +961 3 999 836</a>
+          </div>
+
+          <div class="grid" aria-label="Highlights">
+            <div class="card">
+              <b>Fractional CFO</b>
+              <span>Strategic finance leadership without the full-time overhead.</span>
+            </div>
+            <div class="card">
+              <b>Financial modeling</b>
+              <span>Runway, scenarios, pricing, and growth forecasts for better decisions.</span>
+            </div>
+            <div class="card">
+              <b>Performance systems</b>
+              <span>KPI dashboards, budgeting, and reporting cadences that scale.</span>
+            </div>
           </div>
         </div>
 
-        <footer>© <span id="y"></span> Your Brand. All rights reserved.</footer>
+        <footer>© <span id="y"></span> Core Advisors. All rights reserved.</footer>
       </div>
 
       <aside class="panel">
-        <div class="cta">
-          <h2>Get notified on launch</h2>
-          <p>Drop your email. We’ll send a single message when we go live.</p>
+        <div class="aside">
+          <h2>Services</h2>
+          <p>Focused support designed to unblock decisions, strengthen financial operations, and improve investor readiness.</p>
 
-          <!-- NETLIFY FORMS OPTION:
-               1) Keep data-netlify="true"
-               2) Add a hidden input with form-name
-               3) Deploy once, then Netlify will detect the form
-          -->
-          <form id="waitlist" name="waitlist" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="waitlist" />
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
-            <button type="submit">Join waitlist</button>
-          </form>
-
-          <div class="ok" id="ok">Received. You’re on the list.</div>
-          <div class="err" id="err">Something went wrong. Try again.</div>
-
-          <div class="fine">
-            By joining, you agree to be contacted about launch updates.
-            <a href="#" onclick="return false;">Privacy policy</a>
-          </div>
-        </div>
-
-        <div class="list">
-          <h3>What to expect</h3>
           <div class="item">
-            <b>Clear positioning</b>
-            <span>One sentence value proposition that’s easy to repeat.</span>
+            <b>Strategic advisory</b>
+            <span>Board-level guidance, unit economics, and operating rhythm.</span>
           </div>
           <div class="item">
-            <b>Early access</b>
-            <span>First wave of users get priority onboarding.</span>
+            <b>Forecasting & budgeting</b>
+            <span>12–24 month forecasts, budget ownership, and variance analysis.</span>
           </div>
           <div class="item">
-            <b>Roadmap transparency</b>
-            <span>Public changelog and short release cycles.</span>
+            <b>Cash flow & runway</b>
+            <span>Cash planning, burn control, and working-capital strategy.</span>
+          </div>
+          <div class="item">
+            <b>Investor readiness</b>
+            <span>Pitch financials, reporting packs, and diligence support.</span>
+          </div>
+
+          <div class="sectionTitle">Contact</div>
+          <div class="item">
+            <div class="kv">
+              <div class="k">Email</div>
+              <div class="v"><a href="mailto:wchehaid@gmail.com">wchehaid@gmail.com</a></div>
+            </div>
+            <div class="kv" style="margin-top:10px;">
+              <div class="k">Phone</div>
+              <div class="v"><a href="tel:+9613999836">+961 3 999 836</a></div>
+            </div>
+          </div>
+
+          <div class="note">
+            Typical engagement: monthly fractional CFO support or fixed-scope modeling and reporting.
           </div>
         </div>
       </aside>
@@ -308,12 +285,6 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // If you’re NOT using Netlify Forms and want a “fake submit” UX demo locally:
-    // document.getElementById('waitlist').addEventListener('submit', (e) => {
-    //   e.preventDefault();
-    //   document.getElementById('ok').style.display = 'block';
-    // });
   </script>
 </body>
 </html>
