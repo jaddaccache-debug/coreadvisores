@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="We’re building something useful. Join the waitlist to be the first to know when we launch." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <meta property="og:title" content="Launching Soon" />
+  <meta property="og:description" content="Join the waitlist to be notified on launch." />
+  <meta property="og:type" content="website" />
+
+  <title>Launching Soon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg0:#050816;
+      --bg1:#0b1220;
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --accent: #38bdf8;
+      --accent2:#a78bfa;
+      --shadow: 0 24px 60px rgba(0,0,0,.50);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 20%, rgba(56,189,248,.18), transparent 60%),
+        radial-gradient(700px 500px at 85% 30%, rgba(167,139,250,.16), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+
+    a{ color:inherit; }
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 18px 40px;
+    }
+
+    .shell{
+      width: min(100%, var(--max));
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding: 34px 34px 26px;
+      position:relative;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .2px;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(56,189,248,.14);
+    }
+
+    h1{
+      margin: 16px 0 10px;
+      font-size: clamp(34px, 3.8vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -1.1px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+
+    .stats{
+      margin-top: 20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      padding: 14px;
+      border-radius: var(--radius2);
+      border: 1px dashed rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+    }
+    .stat{
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      min-width: 140px;
+      flex: 1 1 160px;
+    }
+    .stat b{ display:block; font-size: 14px; }
+    .stat span{ color: var(--muted2); font-size: 12px; }
+
+    .cta{
+      padding: 26px 26px 26px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+    .cta h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .cta p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    form{
+      margin-top: 8px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+    label{ position:absolute; left:-9999px; }
+
+    input{
+      flex: 1 1 240px;
+      min-width: 220px;
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline: none;
+    }
+    input::placeholder{ color: rgba(255,255,255,.45); }
+    input:focus{
+      border-color: rgba(56,189,248,.55);
+      box-shadow: 0 0 0 6px rgba(56,189,248,.10);
+    }
+
+    button{
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 0;
+      cursor:pointer;
+      font-weight: 700;
+      color: #07121b;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 14px 30px rgba(56,189,248,.12);
+      transition: transform .12s ease, filter .12s ease;
+      flex: 0 0 auto;
+    }
+    button:hover{ filter: brightness(1.04); transform: translateY(-1px); }
+    button:active{ transform: translateY(0px); }
+
+    .fine{
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted2);
+      line-height: 1.5;
+    }
+    .fine a{ text-decoration: underline; text-underline-offset: 3px; }
+
+    .list{
+      padding: 26px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+    .list h3{ margin:0; font-size:16px; }
+    .item{
+      padding: 14px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+    }
+    .item b{ display:block; font-size: 14px; margin-bottom: 6px; }
+    .item span{ color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    footer{
+      padding: 14px 18px 0;
+      text-align:center;
+      color: rgba(255,255,255,.45);
+      font-size: 12px;
+    }
+
+    .ok, .err{
+      display:none;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .ok{ border-color: rgba(56,189,248,.25); }
+    .err{ border-color: rgba(255,120,120,.25); }
+
+    @media (max-width: 880px){
+      .shell{ grid-template-columns: 1fr; }
+      .hero{ padding: 28px 22px 20px; }
+      .cta, .list{ padding: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      button{ transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="shell">
+      <div class="panel">
+        <div class="hero">
+          <div class="badge"><span class="dot"></span> Private beta opening soon</div>
+          <h1>We’re building something people will actually use.</h1>
+          <p class="sub">
+            A focused product designed to solve one problem well. Join the waitlist and we’ll notify you the moment it launches.
+          </p>
+
+          <div class="stats" aria-label="Highlights">
+            <div class="stat"><b>Fast launch</b><span>Lean MVP, iterative releases</span></div>
+            <div class="stat"><b>Privacy-first</b><span>No spam. No selling emails</span></div>
+            <div class="stat"><b>Global-ready</b><span>Built for scale & speed</span></div>
+          </div>
+        </div>
+
+        <footer>© <span id="y"></span> Your Brand. All rights reserved.</footer>
+      </div>
+
+      <aside class="panel">
+        <div class="cta">
+          <h2>Get notified on launch</h2>
+          <p>Drop your email. We’ll send a single message when we go live.</p>
+
+          <!-- NETLIFY FORMS OPTION:
+               1) Keep data-netlify="true"
+               2) Add a hidden input with form-name
+               3) Deploy once, then Netlify will detect the form
+          -->
+          <form id="waitlist" name="waitlist" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="waitlist" />
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+            <button type="submit">Join waitlist</button>
+          </form>
+
+          <div class="ok" id="ok">Received. You’re on the list.</div>
+          <div class="err" id="err">Something went wrong. Try again.</div>
+
+          <div class="fine">
+            By joining, you agree to be contacted about launch updates.
+            <a href="#" onclick="return false;">Privacy policy</a>
+          </div>
+        </div>
+
+        <div class="list">
+          <h3>What to expect</h3>
+          <div class="item">
+            <b>Clear positioning</b>
+            <span>One sentence value proposition that’s easy to repeat.</span>
+          </div>
+          <div class="item">
+            <b>Early access</b>
+            <span>First wave of users get priority onboarding.</span>
+          </div>
+          <div class="item">
+            <b>Roadmap transparency</b>
+            <span>Public changelog and short release cycles.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // If you’re NOT using Netlify Forms and want a “fake submit” UX demo locally:
+    // document.getElementById('waitlist').addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   document.getElementById('ok').style.display = 'block';
+    // });
+  </script>
+</body>
+</html>
