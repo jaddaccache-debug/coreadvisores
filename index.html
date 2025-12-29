@@ -97,32 +97,6 @@
     .brandName{ margin:0; font-family: var(--hFont); font-size: 18px; letter-spacing:-0.2px; }
     .tagline{ margin:0; font-size: 13px; color: var(--muted); }
 
-    nav.nav{
-      display:flex;
-      gap: 12px;
-      flex-wrap: nowrap;
-      align-items:center;
-      justify-content:center;
-      min-width: 0;
-      overflow-x:auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    nav.nav a{
-      padding: 8px 10px;
-      border-radius: 10px;
-      color: var(--muted);
-      font-size: 13px;
-      border: 1px solid transparent;
-      transition: color .12s ease, border-color .12s ease, background .12s ease;
-      white-space: nowrap;
-    }
-    nav.nav a:hover{ color: var(--navy); border-color: rgba(15,23,58,.12); background: rgba(15,23,58,.04); text-decoration:none; }
-    nav.nav a:focus-visible{
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-      border-color: transparent;
-    }
-
     .actions{ display:flex; gap: 10px; flex-wrap:nowrap; align-items:center; justify-content:flex-end; }
     .chip{
       padding: 10px 14px;
@@ -132,6 +106,9 @@
       font-size: 13px;
       color: var(--ink);
       transition: transform .12s ease, box-shadow .16s ease, filter .16s ease;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
     }
     .chip:hover{ text-decoration:none; transform: translateY(-1px); box-shadow: 0 8px 16px rgba(15,23,58,.10); }
     .chip.primary{
@@ -382,17 +359,19 @@
           <p class="tagline">Fractional CFO & Strategic Financial Advisory</p>
         </div>
       </div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#value">Value</a>
-        <a href="#services">Services</a>
-        <a href="#who">Who</a>
-        <a href="#credibility">Credibility</a>
-        <a href="#contact">Contact</a>
-      </nav>
       <div class="actions">
         <a class="chip primary" href="mailto:info@coreadvisorsglobal.com?subject=Intro%20call%20with%20Core%20Advisors">Book intro call</a>
-        <a class="chip" href="tel:+9613999836">Call +961 3 999 836</a>
-        <a class="chip" href="mailto:info@coreadvisorsglobal.com">Email</a>
+        <a class="chip" href="tel:+9613999836" aria-label="Call +961 3 999 836">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" stroke="#0f1f3a" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 4h4l1.5 3.5L8.5 9c1.2 2.4 3.1 4.3 5.5 5.5l1.5-2 3.5 1.5v4c0 .6-.4 1-1 1C11.6 19 5 12.4 5 4.9 5 4.4 5.4 4 6 4Z"/>
+          </svg>
+        </a>
+        <a class="chip" href="mailto:info@coreadvisorsglobal.com" aria-label="Email info@coreadvisorsglobal.com">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" stroke="#0f1f3a" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16v12H4z"/>
+            <path d="M4 8l8 5 8-5"/>
+          </svg>
+        </a>
       </div>
     </header>
 
