@@ -72,6 +72,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
+      flex-wrap: nowrap;
       gap: 14px;
       padding: 16px 18px;
       border-radius: var(--radius2);
@@ -99,8 +100,13 @@
     nav.nav{
       display:flex;
       gap: 8px;
-      flex-wrap:wrap;
+      flex-wrap: nowrap;
       align-items:center;
+      flex: 1 1 auto;
+      min-width: 0;
+      justify-content:center;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
     }
     nav.nav a{
       padding: 8px 10px;
@@ -109,6 +115,7 @@
       font-size: 13px;
       border: 1px solid transparent;
       transition: color .12s ease, border-color .12s ease, background .12s ease;
+      white-space: nowrap;
     }
     nav.nav a:hover{ color: var(--navy); border-color: rgba(15,23,58,.12); background: rgba(15,23,58,.04); text-decoration:none; }
     nav.nav a:focus-visible{
@@ -163,7 +170,7 @@
     h1{
       margin: 0 0 12px;
       font-family: var(--hFont);
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(30px, 4vw, 48px);
       line-height: 1.06;
       letter-spacing: -1px;
       color: var(--navy);
@@ -171,8 +178,8 @@
     .lede{
       margin:0;
       color: var(--muted);
-      font-size: 17px;
-      line-height: 1.65;
+      font-size: clamp(15.5px, 3.6vw, 17px);
+      line-height: 1.62;
       max-width: 64ch;
     }
     .ctaRow{ margin: 20px 0 16px; display:flex; gap: 12px; flex-wrap:wrap; }
@@ -345,6 +352,18 @@
       .framework{ grid-template-columns: 1fr; }
       .credGrid{ grid-template-columns: 1fr; }
       .btn, .chip{ width: 100%; justify-content:center; }
+    }
+
+    @media (max-width: 540px){
+      .page{ padding: 24px 16px 56px; }
+      .hero, .panel, .contact{ padding: 18px; }
+      .actions, .ctaRow, .contactActions{ gap: 8px; }
+      h1{ font-size: clamp(28px, 7vw, 38px); line-height:1.08; }
+      .section{ margin-top: 36px; }
+      .card, .who .tile, .cred{ padding: 14px; }
+      .cardHead{ align-items:flex-start; }
+      .card b{ font-size: 16px; }
+      .card span, .who span, .cred span{ font-size: 13.5px; }
     }
 
     @media (prefers-reduced-motion: reduce){
