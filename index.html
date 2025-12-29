@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Core Advisors — fractional CFO and financial advisory support for founders and leadership teams." />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#0f1f3a" />
 
   <meta property="og:title" content="Core Advisors — Financial Advisory" />
   <meta property="og:description" content="Fractional CFO, financial modeling, and strategic advisory for growing businesses." />
@@ -14,35 +14,41 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg0:#050816;
-      --bg1:#0b1220;
+      /* Brand-fit (logo): Navy + Gold + Silver */
+      --navy:#0f1f3a;
+      --navy2:#0b182f;
+      --gold:#c8a24a;
+      --silver:#e7e9ee;
+
       --card: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.10);
+      --stroke: rgba(255,255,255,.12);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --muted2: rgba(255,255,255,.55);
-      --accent: #38bdf8;
-      --accent2:#a78bfa;
-      --shadow: 0 24px 60px rgba(0,0,0,.50);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.58);
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+
       --radius: 18px;
       --radius2: 14px;
       --max: 1120px;
+
+      --hFont: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+      --bFont: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: var(--bFont);
       color: var(--text);
       background:
-        radial-gradient(900px 500px at 15% 20%, rgba(56,189,248,.18), transparent 60%),
-        radial-gradient(700px 500px at 85% 30%, rgba(167,139,250,.16), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
+        radial-gradient(900px 520px at 15% 18%, rgba(200,162,74,.18), transparent 55%),
+        radial-gradient(720px 520px at 85% 28%, rgba(231,233,238,.10), transparent 55%),
+        linear-gradient(180deg, var(--navy), var(--navy2));
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -53,13 +59,13 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding: 28px 18px 40px;
+      padding: 26px 18px 44px;
     }
 
     .shell{
       width: min(100%, var(--max));
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 22px;
       align-items:stretch;
     }
@@ -73,7 +79,41 @@
       overflow:hidden;
     }
 
-    .hero{ padding: 34px 34px 26px; position:relative; }
+    .hero{ padding: 34px 34px 22px; position:relative; }
+
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    /* Put your logo file in the same folder as index.html named logo.png or logo.jpg */
+    .logo{
+      width: 78px;
+      height: 78px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 34px rgba(0,0,0,.35);
+      object-fit: cover;
+      flex: 0 0 auto;
+    }
+
+    .brandText{
+      min-width: 0;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+
+    .brandName{
+      font-family: var(--hFont);
+      letter-spacing: -0.6px;
+      font-size: 26px;
+      line-height: 1.1;
+      margin:0;
+    }
 
     .badge{
       display:inline-flex;
@@ -81,30 +121,33 @@
       gap:10px;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid var(--stroke);
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(0,0,0,.18);
       color: var(--muted);
       font-size: 13px;
       letter-spacing: .2px;
+      width: fit-content;
     }
     .dot{
       width: 8px; height: 8px; border-radius: 99px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(56,189,248,.14);
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(200,162,74,.14);
     }
 
     h1{
-      margin: 16px 0 10px;
-      font-size: clamp(32px, 3.8vw, 54px);
-      line-height: 1.05;
-      letter-spacing: -1.1px;
+      margin: 18px 0 10px;
+      font-family: var(--hFont);
+      font-size: clamp(32px, 3.6vw, 52px);
+      line-height: 1.06;
+      letter-spacing: -1.0px;
     }
+
     .sub{
       margin:0;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.6;
-      max-width: 62ch;
+      line-height: 1.65;
+      max-width: 66ch;
     }
 
     .ctaRow{
@@ -121,28 +164,28 @@
       gap:10px;
       padding: 12px 14px;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.16);
       background: rgba(0,0,0,.18);
       font-weight: 700;
       white-space: nowrap;
     }
     .btnPrimary{
       border: 0;
-      color: #07121b;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 14px 30px rgba(56,189,248,.12);
+      color: #091422;
+      background: linear-gradient(135deg, var(--gold), var(--silver));
+      box-shadow: 0 14px 30px rgba(200,162,74,.12);
     }
-    .btn:hover{ text-decoration:none; filter: brightness(1.04); }
+    .btn:hover{ text-decoration:none; filter: brightness(1.05); }
     .btn:active{ transform: translateY(1px); }
 
     .grid{
-      margin-top: 20px;
+      margin-top: 18px;
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       padding: 14px;
       border-radius: var(--radius2);
-      border: 1px dashed rgba(255,255,255,.12);
+      border: 1px dashed rgba(255,255,255,.14);
       background: rgba(0,0,0,.10);
     }
 
@@ -154,7 +197,7 @@
       min-width: 0;
     }
     .card b{ display:block; font-size: 14px; }
-    .card span{ color: var(--muted2); font-size: 12px; line-height: 1.45; display:block; margin-top: 6px; }
+    .card span{ color: var(--muted2); font-size: 12.5px; line-height: 1.5; display:block; margin-top: 6px; }
 
     footer{
       padding: 14px 18px 0;
@@ -164,10 +207,15 @@
     }
 
     .aside{ padding: 22px; display:flex; flex-direction:column; gap: 14px; }
-    .aside h2{ margin:0; font-size: 18px; letter-spacing: -0.2px; }
-    .aside p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .aside h2{
+      margin:0;
+      font-family: var(--hFont);
+      font-size: 20px;
+      letter-spacing: -0.3px;
+    }
+    .aside p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.65; }
 
-    .sectionTitle{ margin: 10px 0 0; font-size: 14px; color: rgba(255,255,255,.85); }
+    .sectionTitle{ margin: 10px 0 0; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.78); }
 
     .item{
       padding: 14px;
@@ -176,7 +224,7 @@
       background: rgba(0,0,0,.10);
     }
     .item b{ display:block; font-size: 14px; margin-bottom: 6px; }
-    .item span{ color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .item span{ color: var(--muted); font-size: 13px; line-height: 1.6; }
 
     .kv{
       display:grid;
@@ -185,21 +233,42 @@
       align-items:start;
     }
     .k{ color: rgba(255,255,255,.65); font-size: 12px; padding-top: 2px; }
-    .v{ font-size: 13px; color: rgba(255,255,255,.90); word-break: break-word; }
+    .v{ font-size: 13px; color: rgba(255,255,255,.92); word-break: break-word; }
 
     .note{
       margin-top:2px;
       color: rgba(255,255,255,.55);
       font-size: 12px;
-      line-height: 1.5;
+      line-height: 1.55;
+    }
+
+    .trust{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+    .pill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
     }
 
     @media (max-width: 980px){
       .shell{ grid-template-columns: 1fr; }
-      .hero{ padding: 28px 22px 20px; }
+      .hero{ padding: 28px 22px 18px; }
       .aside{ padding: 22px; }
       .grid{ grid-template-columns: 1fr; }
       .kv{ grid-template-columns: 90px 1fr; }
+      .logo{ width: 64px; height: 64px; border-radius: 16px; }
+      .brandName{ font-size: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
     }
   </style>
 </head>
@@ -209,23 +278,29 @@
     <section class="shell">
       <div class="panel">
         <div class="hero">
-          <div class="badge"><span class="dot"></span> Fractional CFO & Financial Advisory</div>
+          <div class="brandRow" aria-label="Brand">
+            <img class="logo" src="./logo.png" alt="Core Advisors logo" onerror="this.onerror=null;this.src='./logo.jpg';" />
+            <div class="brandText">
+              <p class="brandName">Core Advisors</p>
+              <div class="badge"><span class="dot"></span> Fractional CFO & Financial Advisory</div>
+            </div>
+          </div>
 
           <h1>Financial clarity for founders and leadership teams.</h1>
 
           <p class="sub">
-            Core Advisors provides senior financial leadership on demand—forecasting, budgeting, KPI systems, and decision support to help you scale with control.
+            Senior finance leadership on demand—forecasting, budgeting, KPI systems, and decision support to help you scale with control, confidence, and investor readiness.
           </p>
 
           <div class="ctaRow" aria-label="Primary actions">
-            <a class="btn btnPrimary" href="mailto:wchehaid@gmail.com?subject=Core%20Advisors%20Inquiry">Email</a>
+            <a class="btn btnPrimary" href="mailto:info@coreadvisorsglobal.com?subject=Core%20Advisors%20Inquiry">Email</a>
             <a class="btn" href="tel:+9613999836">Call +961 3 999 836</a>
           </div>
 
           <div class="grid" aria-label="Highlights">
             <div class="card">
               <b>Fractional CFO</b>
-              <span>Strategic finance leadership without the full-time overhead.</span>
+              <span>Strategic finance leadership without the full‑time overhead.</span>
             </div>
             <div class="card">
               <b>Financial modeling</b>
@@ -233,7 +308,7 @@
             </div>
             <div class="card">
               <b>Performance systems</b>
-              <span>KPI dashboards, budgeting, and reporting cadences that scale.</span>
+              <span>Dashboards, budgeting, and reporting cadence that scales.</span>
             </div>
           </div>
         </div>
@@ -243,9 +318,17 @@
 
       <aside class="panel">
         <div class="aside">
-          <h2>Services</h2>
-          <p>Focused support designed to unblock decisions, strengthen financial operations, and improve investor readiness.</p>
+          <h2>What we do</h2>
+          <p>Core Advisors helps founders and operators make fast, high‑quality financial decisions—without waiting to hire a full-time CFO.</p>
 
+          <div class="trust" aria-label="Focus areas">
+            <span class="pill">Cash discipline</span>
+            <span class="pill">KPI operating rhythm</span>
+            <span class="pill">Investor readiness</span>
+            <span class="pill">Strategic planning</span>
+          </div>
+
+          <div class="sectionTitle">Services</div>
           <div class="item">
             <b>Strategic advisory</b>
             <span>Board-level guidance, unit economics, and operating rhythm.</span>
@@ -267,7 +350,7 @@
           <div class="item">
             <div class="kv">
               <div class="k">Email</div>
-              <div class="v"><a href="mailto:wchehaid@gmail.com">wchehaid@gmail.com</a></div>
+              <div class="v"><a href="mailto:info@coreadvisorsglobal.com">info@coreadvisorsglobal.com</a></div>
             </div>
             <div class="kv" style="margin-top:10px;">
               <div class="k">Phone</div>
