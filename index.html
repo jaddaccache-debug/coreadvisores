@@ -231,6 +231,21 @@
     .who b{ display:block; margin-bottom: 6px; color: var(--navy); }
     .who span{ color: var(--muted); font-size: 14px; line-height:1.6; }
 
+    .credGrid{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+    .cred{
+      padding: 16px;
+      border-radius: 12px;
+      background: #f7f7f5;
+      border: 1px solid rgba(15,23,58,.10);
+      box-shadow: none;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+    .cred h3{ margin:0; font-size: 14px; letter-spacing:.08em; text-transform: uppercase; color: var(--gold-strong); }
+    .cred b{ font-size: 17px; color: var(--navy2); }
+    .cred span{ color: var(--muted); font-size: 14px; line-height:1.5; }
+
     .contact{
       margin-top: 44px;
       padding: 24px;
@@ -258,6 +273,7 @@
     @media (max-width: 860px){
       .framework{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .who{ grid-template-columns: 1fr; }
+      .credGrid{ grid-template-columns: 1fr; }
     }
 
     @media (max-width: 680px){
@@ -266,6 +282,7 @@
       .hero, .panel, .contact{ padding: 20px; }
       .facts{ grid-template-columns: 1fr; }
       .framework{ grid-template-columns: 1fr; }
+      .credGrid{ grid-template-columns: 1fr; }
       .btn, .chip{ width: 100%; justify-content:center; }
     }
 
@@ -410,6 +427,31 @@
         <div class="tile">
           <b>Investors</b>
           <span>Want transparent assumptions, controlled burn, credible path-to-plan updates.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="credibility" aria-labelledby="cred-title">
+      <div class="sectionHead">
+        <p class="eyebrow" style="color:#7d5b19;">Credibility</p>
+        <h2 id="cred-title">Senior operators with direct accountability.</h2>
+        <p>Decades in finance leadership, hands-on engagements, and partner-led delivery.</p>
+      </div>
+      <div class="credGrid" aria-label="Credibility highlights">
+        <div class="cred">
+          <h3>Experience</h3>
+          <b>Enterprise and growth-stage</b>
+          <span>Fractional CFO and FP&A leadership across SaaS, marketplaces, industrial, and consumer.</span>
+        </div>
+        <div class="cred">
+          <h3>Engagement style</h3>
+          <b>Embedded, not advisory at arm’s length</b>
+          <span>We join operating reviews, own the forecast, and stand in front of the board with you.</span>
+        </div>
+        <div class="cred">
+          <h3>Seniority</h3>
+          <b>Partner-led, no handoffs</b>
+          <span>Your point of contact leads the work, signs the outputs, and attends investor sessions.</span>
         </div>
       </div>
     </section>
