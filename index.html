@@ -163,7 +163,7 @@
 
     .facts{ margin-top: 16px; display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .fact{
-      padding: 14px 16px;
+      padding: 16px 16px;
       border-radius: 12px;
       background: #f7f7f5;
       color: var(--navy);
@@ -171,9 +171,24 @@
       box-shadow: none;
       position:relative;
       overflow:hidden;
+      }
+    .factHeader{ display:flex; align-items:center; gap: 10px; }
+    .factIcon, .cardIcon{
+      width: 32px; height: 32px;
+      border-radius: 12px;
+      background: #0f1f3a;
+      display:grid; place-items:center;
+      box-shadow: 0 6px 12px rgba(15,23,58,.14);
+      flex: 0 0 auto;
+    }
+    .factIcon svg, .cardIcon svg{
+      width: 16px; height: 16px;
+      stroke: #f4e7c2;
+      stroke-width: 1.6;
+      fill: none;
     }
     .fact small{ display:block; font-size: 12px; letter-spacing:.06em; text-transform: uppercase; color: var(--muted); }
-    .fact b{ display:block; margin: 6px 0 4px; font-size: 24px; letter-spacing:-0.4px; }
+    .fact b{ display:block; margin: 4px 0 4px; font-size: 22px; letter-spacing:-0.4px; }
     .fact span{ color: var(--muted); font-size: 13px; line-height:1.4; }
 
     .panel{
@@ -223,7 +238,7 @@
       overflow:hidden;
     }
     .card h3{ margin:0; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-strong); }
-    .card b{ font-size: 17px; letter-spacing:-0.2px; color: var(--navy2); }
+    .card b{ font-size: 17px; letter-spacing:-0.2px; color: var(--navy2); margin-top: 2px; }
     .card span{ color: var(--muted); font-size: 14px; line-height: 1.6; }
 
     .who{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
@@ -279,7 +294,9 @@
     @media (max-width: 680px){
       header.top{ flex-direction:column; align-items:flex-start; position:relative; top:0; }
       .brand img{ width: 52px; height: 52px; }
+      .page{ padding: 28px 18px 64px; }
       .hero, .panel, .contact{ padding: 20px; }
+      main{ gap: 18px; }
       .facts{ grid-template-columns: 1fr; }
       .framework{ grid-template-columns: 1fr; }
       .credGrid{ grid-template-columns: 1fr; }
@@ -322,13 +339,30 @@
 
         <div class="facts" aria-label="Proof points">
           <div class="fact">
-            <small>Runway clarity</small>
-            <b>3–6 months</b>
+            <div class="factHeader">
+              <div class="factIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="8"></circle>
+                  <path d="M12 8v4l2 2"></path>
+                </svg>
+              </div>
+              <div>
+                <small>Runway clarity</small>
+                <b>3–6 months</b>
+              </div>
+            </div>
             <span>Established in 30 days with weekly burn controls.</span>
           </div>
           <div class="fact">
-            <small>Board confidence</small>
-            <b>2x faster</b>
+              <div class="factHeader">
+              <div class="factIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"></path></svg>
+              </div>
+              <div>
+                <small>Board confidence</small>
+                <b>2x faster</b>
+              </div>
+            </div>
             <span>Investor-ready reporting cadence, maintained.</span>
           </div>
         </div>
@@ -388,16 +422,40 @@
 
       <div class="framework" aria-label="Service framework">
         <div class="card">
+          <div class="cardIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 7h3m6 0h3"></path>
+              <path d="M7.5 7v10"></path>
+              <path d="M12 12h6"></path>
+              <path d="M15.5 12v5"></path>
+              <path d="M6 17h4"></path>
+              <path d="M12 17h2"></path>
+            </svg>
+          </div>
           <h3>Operate</h3>
           <b>Finance that runs correctly.</b>
           <span>Cash governance, 12–24 month forecasts, variance tracking, KPI rhythms with accountable owners.</span>
         </div>
         <div class="card">
+          <div class="cardIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 16v-4"></path>
+              <path d="M12 16v-8"></path>
+              <path d="M18 16v-6"></path>
+              <path d="M5 16h14"></path>
+            </svg>
+          </div>
           <h3>Decide</h3>
           <b>Decisions on defensible numbers.</b>
           <span>Scenario models, pricing and unit economics, concise readouts for leadership and boards.</span>
         </div>
         <div class="card">
+          <div class="cardIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 4l7 4v5c0 3.9-3 7.4-7 8-4-0.6-7-4.1-7-8V8l7-4z"></path>
+              <path d="M10 12l2 2 3-3"></path>
+            </svg>
+          </div>
           <h3>Prepare</h3>
           <b>Ready for investors and diligence.</b>
           <span>Board decks, investor materials, data rooms that withstand questions and close timelines.</span>
