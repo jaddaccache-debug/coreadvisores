@@ -137,9 +137,10 @@
     h1{
       margin: 18px 0 10px;
       font-family: var(--hFont);
-      font-size: clamp(32px, 3.6vw, 52px);
+      font-size: clamp(34px, 3.8vw, 56px);
       line-height: 1.06;
       letter-spacing: -1.0px;
+      font-weight: 700;
     }
 
     .sub{
@@ -147,7 +148,7 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.65;
-      max-width: 66ch;
+      max-width: 58ch;
     }
 
     .ctaRow{
@@ -168,6 +169,7 @@
       background: rgba(0,0,0,.18);
       font-weight: 700;
       white-space: nowrap;
+      transition: transform .12s ease, filter .16s ease, box-shadow .2s ease;
     }
     .btnPrimary{
       border: 0;
@@ -177,9 +179,14 @@
     }
     .btn:hover{ text-decoration:none; filter: brightness(1.05); }
     .btn:active{ transform: translateY(1px); }
+    .btn:focus-visible{
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 6px rgba(200,162,74,.18);
+    }
 
     .grid{
-      margin-top: 18px;
+      margin-top: 14px;
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
@@ -198,6 +205,12 @@
     }
     .card b{ display:block; font-size: 14px; }
     .card span{ color: var(--muted2); font-size: 12.5px; line-height: 1.5; display:block; margin-top: 6px; }
+    .divider{
+      height:1px;
+      margin: 18px 0 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.22), rgba(255,255,255,.08));
+      border-radius: 99px;
+    }
 
     footer{
       padding: 14px 18px 0;
@@ -257,14 +270,85 @@
       font-size: 12px;
     }
 
+    .bgVignette{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(15,31,58,.55), transparent 32%),
+        radial-gradient(620px 220px at 80% 0%, rgba(231,233,238,.14), transparent 55%),
+        radial-gradient(520px 200px at 18% 0%, rgba(200,162,74,.16), transparent 45%);
+      opacity: .9;
+      mix-blend-mode: screen;
+    }
+
+    .trustedRow{
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .trustedRow b{ font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+    .trustLogo{
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.16);
+      border: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.85);
+      font-size: 12.5px;
+      letter-spacing: .3px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .servicesGrid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .outcomes{
+      margin-top: 6px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px dashed rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .outcomes ul{
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+    .outcomes li{ margin: 4px 0; }
+
+    .testimonial{
+      margin-top: 4px;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .testimonial p{ margin:0; color: rgba(255,255,255,.82); line-height:1.6; }
+    .testimonial .name{ display:block; margin-top: 10px; font-weight: 700; color: rgba(255,255,255,.86); }
+    .testimonial .title{ display:block; color: var(--muted2); font-size: 12.5px; }
+
     @media (max-width: 980px){
       .shell{ grid-template-columns: 1fr; }
       .hero{ padding: 28px 22px 18px; }
       .aside{ padding: 22px; }
-      .grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; padding: 12px; }
       .kv{ grid-template-columns: 90px 1fr; }
       .logo{ width: 64px; height: 64px; border-radius: 16px; }
       .brandName{ font-size: 22px; }
+      .ctaRow .btn{ flex:1 1 100%; justify-content:center; }
+      .servicesGrid{ grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -274,12 +358,13 @@
 </head>
 
 <body>
+  <div class="bgVignette" aria-hidden="true"></div>
   <main class="wrap">
     <section class="shell">
       <div class="panel">
         <div class="hero">
           <div class="brandRow" aria-label="Brand">
-            <img class="logo" src="./logo.png" alt="Core Advisors logo" onerror="this.onerror=null;this.src='./logo.jpg';" />
+            <img class="logo" src="./logo.png" alt="Core Advisors logo (placeholder shown if image is missing)" onerror="this.onerror=null;this.src='./logo.jpg';" />
             <div class="brandText">
               <p class="brandName">Core Advisors</p>
               <div class="badge"><span class="dot"></span> Fractional CFO & Financial Advisory</div>
@@ -293,10 +378,21 @@
           </p>
 
           <div class="ctaRow" aria-label="Primary actions">
-            <a class="btn btnPrimary" href="mailto:info@coreadvisorsglobal.com?subject=Core%20Advisors%20Inquiry">Email</a>
+            <a class="btn btnPrimary" href="mailto:info@coreadvisorsglobal.com?subject=Intro%20call%20with%20Core%20Advisors">Book an intro call</a>
+            <a class="btn" href="mailto:info@coreadvisorsglobal.com">Email</a>
             <a class="btn" href="tel:+9613999836">Call +961 3 999 836</a>
           </div>
 
+          <div class="trustedRow" aria-label="Trusted by">
+            <b>Trusted by</b>
+            <span class="trustLogo">Series A SaaS</span>
+            <span class="trustLogo">Marketplace Ops</span>
+            <span class="trustLogo">VC-backed Consumer</span>
+            <span class="trustLogo">Industrial Services</span>
+          </div>
+
+          <div class="divider" role="presentation"></div>
+          <div class="sectionTitle" style="margin: 0 0 6px;">How we help</div>
           <div class="grid" aria-label="Highlights">
             <div class="card">
               <b>Fractional CFO</b>
@@ -329,21 +425,32 @@
           </div>
 
           <div class="sectionTitle">Services</div>
-          <div class="item">
-            <b>Strategic advisory</b>
-            <span>Board-level guidance, unit economics, and operating rhythm.</span>
+          <div class="servicesGrid">
+            <div class="item">
+              <b>Strategic advisory</b>
+              <span>Board-level guidance, unit economics, and operating rhythm.</span>
+            </div>
+            <div class="item">
+              <b>Forecasting & budgeting</b>
+              <span>12–24 month forecasts, budget ownership, and variance analysis.</span>
+            </div>
+            <div class="item">
+              <b>Cash flow & runway</b>
+              <span>Cash planning, burn control, and working-capital strategy.</span>
+            </div>
+            <div class="item">
+              <b>Investor readiness</b>
+              <span>Pitch financials, reporting packs, and diligence support.</span>
+            </div>
           </div>
-          <div class="item">
-            <b>Forecasting & budgeting</b>
-            <span>12–24 month forecasts, budget ownership, and variance analysis.</span>
-          </div>
-          <div class="item">
-            <b>Cash flow & runway</b>
-            <span>Cash planning, burn control, and working-capital strategy.</span>
-          </div>
-          <div class="item">
-            <b>Investor readiness</b>
-            <span>Pitch financials, reporting packs, and diligence support.</span>
+
+          <div class="outcomes">
+            Typical outcomes
+            <ul>
+              <li>3–6 month cash runway visibility with weekly burn controls.</li>
+              <li>Board-ready reporting cadence and KPI dashboards.</li>
+              <li>Investor pack with defensible model, metrics, and diligence docs.</li>
+            </ul>
           </div>
 
           <div class="sectionTitle">Contact</div>
@@ -360,6 +467,12 @@
 
           <div class="note">
             Typical engagement: monthly fractional CFO support or fixed-scope modeling and reporting.
+          </div>
+
+          <div class="testimonial" aria-label="Client testimonial">
+            <p>“Core Advisors gave us weekly cash clarity and a board-ready model in six weeks—our investors now trust every number.”</p>
+            <span class="name">Leila M., COO</span>
+            <span class="title">Series A SaaS Platform</span>
           </div>
         </div>
       </aside>
