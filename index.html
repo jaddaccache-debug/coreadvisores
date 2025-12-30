@@ -42,7 +42,7 @@
     body{
       margin:0;
       font-family: var(--bFont);
-      line-height: 1.6;
+      line-height: 1.6; /* Keeps comfortable reading rhythm */
       color: var(--ink);
       background: linear-gradient(180deg, #ffffff, var(--stone));
       text-rendering: optimizeLegibility;
@@ -52,8 +52,9 @@
 
     a{ color:inherit; text-decoration:none; }
     a:hover{ text-decoration:underline; text-underline-offset: 3px; }
+    a:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; } /* Adds consistent focus state for links */
 
-    .page{ width:min(100%, var(--max)); margin:0 auto; padding: 34px 22px 72px; }
+    .page{ width:min(100%, var(--max)); margin:0 auto; padding: 30px 20px 68px; } /* Tightened padding for clearer structure */
 
     .skip{
       position:absolute;
@@ -79,7 +80,7 @@
       border: 1px solid rgba(15,23,42,.08);
       box-shadow: 0 8px 18px rgba(12,17,26,.08);
       position:sticky;
-      top: 12px;
+      top: calc(env(safe-area-inset-top, 0px) + 12px);
       z-index: 10;
       backdrop-filter: blur(10px);
       column-gap: 18px;
@@ -124,12 +125,12 @@
       box-shadow: 0 0 0 8px rgba(200,162,74,.20);
     }
 
-    main{ margin-top: 32px; display:grid; grid-template-columns: 1.08fr .92fr; gap: 32px; align-items:start; }
+    main{ margin-top: 28px; display:grid; grid-template-columns: 1.08fr .92fr; gap: 28px; align-items:start; } /* Slightly tighter above-the-fold spacing */
 
     .hero{
       background: var(--card);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: 28px;
       border: 1px solid var(--line);
       box-shadow: 0 6px 20px rgba(12,17,26,.06);
       position:relative;
@@ -146,19 +147,19 @@
     h1{
       margin: 0 0 12px;
       font-family: var(--hFont);
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.06;
-      letter-spacing: -1px;
+      font-size: clamp(32px, 4.4vw, 46px); /* Normalized hero scale */
+      line-height: 1.08;
+      letter-spacing: -0.9px;
       color: var(--navy);
     }
     .lede{
       margin:0;
       color: var(--muted);
-      font-size: clamp(15.5px, 3.6vw, 17px);
-      line-height: 1.62;
-      max-width: 64ch;
+      font-size: clamp(16px, 3.4vw, 18px); /* Slightly larger subheadline for hierarchy */
+      line-height: 1.65;
+      max-width: 62ch;
     }
-    .ctaRow{ margin: 20px 0 16px; display:flex; gap: 12px; flex-wrap:wrap; }
+    .ctaRow{ margin: 22px 0 14px; display:flex; gap: 12px; flex-wrap:wrap; align-items:center; }
     .btn{
       display:inline-flex;
       align-items:center;
@@ -181,6 +182,8 @@
     }
     .btn:hover{ text-decoration:none; transform: translateY(-1px); filter: brightness(1.01); }
     .btn:active{ transform: translateY(0); }
+    .btn.secondary{ background: transparent; border-color: rgba(15,23,58,.14); color: var(--navy); box-shadow:none; } /* Secondary CTA styling for clarity */
+    .btn.secondary:hover{ background: rgba(15,23,58,.05); }
 
     .facts{ margin-top: 16px; display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .fact{
@@ -241,10 +244,10 @@
     .item b{ display:block; font-size: 15px; }
     .item span{ display:block; color: rgba(247,246,243,.82); font-size: 13px; line-height:1.55; }
 
-    .section{ margin-top: 44px; }
+    .section{ margin-top: 40px; padding: 18px 16px; border-radius: 14px; background: rgba(255,255,255,.82); border: 1px solid rgba(15,23,58,.06); box-shadow: 0 6px 16px rgba(12,17,26,.06); } /* Adds gentle separation between sections */
     .sectionHead{ display:flex; flex-direction:column; gap: 6px; margin-bottom: 12px; }
-    .sectionHead h2{ margin:0; font-family: var(--hFont); font-size: 30px; letter-spacing:-0.7px; color: var(--navy); }
-    .sectionHead p{ margin:0; color: var(--muted); line-height:1.65; font-size: 15px; max-width: 70ch; }
+    .sectionHead h2{ margin:0; font-family: var(--hFont); font-size: 28px; letter-spacing:-0.6px; color: var(--navy); line-height:1.2; } /* Normalized heading scale */
+    .sectionHead p{ margin:0; color: var(--muted); line-height:1.62; font-size: 15px; max-width: 70ch; }
 
     .framework{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .card{
@@ -319,15 +322,33 @@
     }
 
     @media (max-width: 680px){
-      header.top{ flex-direction:column; align-items:flex-start; position:relative; top:0; }
+      header.top{
+        flex-direction:column;
+        align-items:flex-start;
+        position:sticky;
+        top: calc(env(safe-area-inset-top, 0px) + 8px);
+      }
       .brand img{ width: 52px; height: 52px; }
-      .page{ padding: 28px 18px 64px; }
-      .hero, .panel, .contact{ padding: 20px; }
-      main{ gap: 22px; }
+      .page{ padding: 24px 16px 56px; }
+      .hero, .panel, .contact{ padding: 18px; }
+      main{ gap: 20px; }
       .facts{ grid-template-columns: 1fr; }
       .framework{ grid-template-columns: 1fr; }
       .credGrid{ grid-template-columns: 1fr; }
+      .section{ padding: 14px 12px; } /* Slightly tighter cards on small screens */
+      .actions{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+      }
+      .actions .chip{
+        flex: 1 1 calc(50% - 8px);
+        min-width: 0;
+        justify-content:center;
+      }
+      .actions .chip.primary{ flex-basis: 100%; }
       .btn, .chip{ width: 100%; justify-content:center; }
+      .ctaRow{ flex-direction:column; align-items:stretch; } /* Stacks CTAs for clarity on mobile */
     }
 
     @media (max-width: 540px){
@@ -382,8 +403,8 @@
         <p class="lede">Fractional CFO support for founders, CEOs, and boards that need disciplined cash, defensible numbers, and board-ready reporting—now, not later.</p>
 
         <div class="ctaRow" aria-label="Primary actions">
-          <a class="btn primary" href="mailto:info@coreadvisorsglobal.com?subject=Intro%20call%20with%20Core%20Advisors">Start an intro call</a>
-          <a class="btn" href="#services">View services</a>
+          <a class="btn primary" href="mailto:info@coreadvisorsglobal.com?subject=Intro%20call%20with%20Core%20Advisors">Start an intro call</a> <!-- Single primary CTA emphasized -->
+          <a class="btn secondary" href="#services">View services</a> <!-- Secondary CTA uses ghost style for lower prominence -->
         </div>
 
         <div class="facts" aria-label="Proof points">
